@@ -1,0 +1,287 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    position: relative;  /* To position the mobile navigation correctly */
+}
+
+/* Logo Styling */
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 20px;
+    width: 20%;
+}
+
+.Logo span {
+    margin: 0 10px;
+}
+
+.Logo span:nth-child(2) {
+    font-size: 40px;
+    color: red;
+    text-shadow: 0 1px 2px;
+    font-weight: 900;
+}
+
+/* Navigation Links for Desktop */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 80%; /* Adjusted to make space for logo */
+}
+
+nav ul li {
+    position: relative;  /* For positioning the submenus */
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+/* Submenu Styling (Initially Hidden) */
+nav ul li ul {
+    display: none;  /* Hide the submenus by default */
+    position: absolute;  /* Positioning the submenus below the parent item */
+    top: 100%;  /* Position submenu below the parent item */
+    left: 0;
+    background-color: #333;
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    width: 200px;  /* Optional: You can adjust the width of the dropdown */
+}
+
+nav ul li:hover > ul {
+    display: block;  /* Display the submenu when hovering over the parent item */
+}
+
+nav ul li ul li {
+    width: 100%;  /* Make each submenu item occupy the full width of the submenu */
+}
+
+nav ul li ul li a {
+    padding: 10px;
+    color: white;
+    display: block;  /* Make each submenu item a block-level element */
+}
+
+nav ul li ul li a:hover {
+    background-color: #444;
+}
+
+/* Mobile Menu (Hidden by default) */
+.mobile-nav {
+    display: none;
+}
+
+/* Toggle Button for Mobile View */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Show Navigation Links in Desktop View */
+@media screen and (min-width: 769px) {
+    .mobile-nav {
+        display: flex;
+    }
+
+    nav ul {
+        display: flex;
+    }
+}
+
+/* Mobile View (Below 768px) */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide links by default */
+        flex-direction: column;
+        width: 50%; /* Make the nav bar occupy the left half of the screen */
+        position: absolute;
+        top: 80px; /* Position below the logo */
+        left: 0;
+        background-color: #333;  /* Background for mobile menu */
+        z-index: 1000; /* To ensure menu appears above content */
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-nav.active {
+        display: block; /* Show the mobile navigation when active */
+    }
+
+    .mobile-nav ul {
+        display: block;
+    }
+
+    .mobile-nav ul li {
+        display: block;
+    }
+
+    .mobile-nav ul li a {
+        padding: 10px 0;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }
+
+    .mobile-nav ul li a:hover {
+        background-color: #444;
+    }
+
+    /* For submenus in mobile view */
+    nav ul li > ul {
+        display: none; /* Hide submenus by default */
+        position: absolute;
+        left: 100%;  /* Position the submenu to the right of the parent */
+        top: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    nav ul li.active > ul {
+        display: block; /* Show submenu when parent is clicked */
+    }
+
+    nav ul li ul li a {
+        padding: 10px;
+        color: white;
+        display: block;  /* Make each submenu item a block-level element */
+    }
+}
+.home{
+    width: 100%;
+}
+.home img{
+    width: 100%;
+    height: 100vh;
+    
+}
+.home span{
+    position: absolute;
+    color: blue;
+    padding: 50px;
+    left: 20%;
+    top: 40%;
+    background-color: rgba(0, 255, 255, 0.2);
+    border-radius: 50px;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bolder;
+    font-size: 30px;
+
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+}
+
+.footer-middle ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-middle ul li {
+    display:inline-block;
+    margin: 0 15px;
+}
+
+.footer-middle ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-middle ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.social-icon:hover {
+    color: #ff6600;
+}
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.back-to-top:hover {
+    background-color: #ff3300;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

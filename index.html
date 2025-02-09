@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Expenditure Tracker</title>
+    <link rel="stylesheet" href="styling.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="Logo">
+            <span style="font-size: 20px; color: yellow; font-family: 'Dancing Script', cursive;">Track</span>
+            <span style="font-size: 40px; color: red; text-shadow: 0 1px 2px; font-weight: 900; font-family: 'Dancing Script', cursive;">X</span>
+            <span style="font-family: 'Dancing Script', cursive; color: blue; font-size: 20px;">Spend</span>
+        </div>
+
+        <!-- Menu Toggle Button for Mobile -->
+        <button class="menu-toggle">☰ Menu</button>
+
+        <!-- Mobile Nav Links -->
+        <div class="mobile-nav">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">Transactions</a>
+                    <ul>
+                        <li><a href="transaction_form.html">Add Transaction</a></li>
+                        <li><a href="see_transactions.php">View Transactions</a></li>
+                    </ul>
+                </li>
+                <li><a href="analysis.php">Expenditure Analysis</a>
+                </li>
+                <li><a href="download_report.php">Reports</a>
+                </li>
+                <li><a href="/settings">Settings</a>
+                    <ul>
+                        <li><a href="/manage-account">Manage Account</a></li>
+                        <li><a href="/change-password">Change Password</a></li>
+                    </ul>
+                </li>
+                <li><a href="/help">Help</a>
+                    <ul>
+                        <li><a href="/faqs">FAQs</a></li>
+                        <li><a href="/contact-support">Contact Support</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+<script>
+    // Toggle Mobile Menu
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.mobile-nav').classList.toggle('active');
+});
+
+// Toggle Submenu on Parent Menu Click
+document.querySelectorAll('nav ul li').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        // Prevent event from bubbling up to the parent menu
+        event.stopPropagation();
+        
+        // Close other open submenus
+        document.querySelectorAll('nav ul li').forEach(function(subItem) {
+            if (subItem !== item) {
+                subItem.classList.remove('active');
+            }
+        });
+
+        // Toggle the current submenu
+        item.classList.toggle('active');
+    });
+});
+
+</script>
+<div class="home">
+    <span><p>Welcome to finance track and Expenditure management system <br>your financial wealth is our concern</p></span>
+    <img src="images/casheer 3.jpg" alt="">
+
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2025 Your Website Name. All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-middle">
+            <nav>
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer-right">
+            <p>Follow us:</p>
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">TW</a>
+            <a href="#" class="social-icon">IG</a>
+        </div>
+    </div>
+
+    <!-- Optional Back to Top Button -->
+    <button onclick="scrollToTop()" class="back-to-top">↑</button>
+</footer>
+
+
+</body>
+</html>

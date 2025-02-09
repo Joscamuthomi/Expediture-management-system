@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+    <style>
+        /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Container for the form */
+.transaction-form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    margin: 20px;
+}
+
+/* Form Labels */
+label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Form Inputs */
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Amount Spent - Specific Styling */
+input[type="number"] {
+    color: #333;
+}
+
+select {
+    background-color: #f7f7f7;
+}
+
+/* Submit Button */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsiveness for Mobile */
+@media (max-width: 768px) {
+    .transaction-form-container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* For "Others" Description: */
+#other_description_div {
+    display: none;
+}
+
+/* Styling for Input Fields when focused */
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Optional Styling for Textarea */
+textarea {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Success Message Style */
+.success-message {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="transaction-form-container">
+        <h2>Transaction Form</h2>
+        <form action="process_transaction.php" method="POST">
+            <!-- Transaction Date -->
+            <label for="transaction_date">Transaction Date:</label>
+            <input type="date" id="transaction_date" name="transaction_date" required>
+
+            <!-- Transaction Type -->
+            <label for="transaction_type">Transaction Type:</label>
+            <select id="transaction_type" name="transaction_type" required>
+                <option value="send_money">Send Money</option>
+                <option value="purchasing_shopping">Shopping</option>
+                <option value="rent">Rent</option>
+                <option value="credit">Credit</option>
+                <option value="food">Food</option>
+                <option value="clothes">clothes</option>
+                <option value="transport">transport</option>
+                <option value="others">Others</option>
+            </select>
+
+            <!-- Additional Description if "Others" selected -->
+            <div id="other_description_div" style="display:none;">
+                <label for="other_description">Specify the Transaction:</label>
+                <textarea id="other_description" name="other_description" rows="4" cols="50"></textarea>
+            </div>
+
+            <!-- Amount Spent -->
+            <label for="amount_spent">Amount Spent:</label>
+            <input type="number" id="amount_spent" name="amount_spent" required step="0.01" min="0" placeholder="Enter the amount">
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Transaction</button>
+        </form>
+    </div>
+
+    <script>
+        // Show or hide the "other_description" field based on the transaction type selected
+        document.getElementById('transaction_type').addEventListener('change', function() {
+            var transactionType = this.value;
+            if (transactionType === 'others') {
+                document.getElementById('other_description_div').style.display = 'block';
+            } else {
+                document.getElementById('other_description_div').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
